@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入layui -->
+    <link rel="stylesheet" href="assets/lib/layui/css/layui.css">
+    <!-- 引入自己的css -->
+    <link rel="stylesheet" href="assets/css/login.css">
+
+</head>
+
+<body>
+    <!-- logo区域 -->
+    <div class="layui-main logo">
+        <img src="assets/images/logo.png" alt="">
+    </div>
+    <!-- 登陆盒子 login区域 开始-->
+    <div class="login">
+        <!-- 登录盒子title  -->
+        <div class="form-title">
+            <img src="assets/images/login_title.png" alt="" />
+        </div>
+        <!-- login 表单区域 -->
+        <div class="form-area">
+            <form class="layui-form">
+                <!-- 第一行 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <!-- 第二行 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="password required lay-verify=" required" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <!-- 第三行 -->
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="formDemo">登录</button>
+                </div>
+                <!-- 第四行 -->
+                <div class="layui-form-item goto-register">
+                    <a href="javascript:void(0);">去注册账号</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- 登陆盒子 login区域 结束-->
+
+    <!-- 注册盒子 login区域 开始-->
+    <div class="enroll">
+        <!-- 登录盒子title  -->
+        <div class="form-title">
+            <img src="assets/images/login_title.png" alt="" />
+        </div>
+        <!-- login 表单区域 -->
+        <div class="form-area">
+            <form class="layui-form" id="reg-submit">
+                <!-- 第一行 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <!-- 第二行 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input password">
+                </div>
+                <!-- 第三行 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" required lay-verify="required|repwd" placeholder="请输入确认密码" autocomplete="off"
+                        class="layui-input">
+                    
+                </div>
+                <!-- 第四行 -->
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="formDemo">注册</button>
+                </div>
+                <!-- 第五行 -->
+                <div class="layui-form-item goto-enter ">
+                    <a href="javascript:void(0);">去登录</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- 注册盒子 login区域 结束-->
+
+    <!-- 引入jquery -->
+    <script src="assets/lib/jquery.js"></script>
+    <script src="assets/lib/layui/layui.all.js"></script>
+    <script src="assets/js/login.js"></script>
+    <script>
+        // $.ajax({
+        //     success:function(){
+        //         var data = $(this).serialize  
+        //     }
+        // })
+    </script>
+</body>
+
+</html>
