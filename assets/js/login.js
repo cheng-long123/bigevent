@@ -42,7 +42,7 @@ $(function () {
         //post请求
         $.ajax({
             type: 'POST',
-            url: 'http://www.liulongbin.top:3007/api/reguser',
+            url: '/api/reguser',
             data: data,
             success: function (res) {
                 // console.log(res);
@@ -66,7 +66,7 @@ $(function () {
         //用post方式提交
         $.ajax({
             type: 'POST',
-            url: 'http://www.liulongbin.top:3007/api/login',
+            url: '/api/login',
             data: data,
             success: function (res) {
                 //判断验证是否失败，如果失败停止执行下面的代码
