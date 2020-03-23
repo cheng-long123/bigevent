@@ -1,8 +1,10 @@
 //入口函数
+
 $(function () {
     //注册点击事件 去注册
-    $('.goto-register a').on('click', function () {
+    $('.goto-register a').on('click', function (e) {
         //点击隐藏盒子
+
         $('.login').hide();
         //点击显示盒子
         $('.enroll').show();
@@ -26,9 +28,11 @@ $(function () {
             if (psw != value) {
                 //密码不一致提示
                 return '密码不一致'
+
             };
         }
     });
+    //注册盒子的提交功能
     $('#reg-submit').on('submit', function (e) {
         //阻止默认事件
         e.preventDefault();
@@ -53,4 +57,31 @@ $(function () {
             }
         });
     });
+    //登录盒子提交功能
+    $('#register').on('submit', function (e) {
+        //取消默认行为
+        e.preventDefault();
+        //获取表单的name值
+        var data = $(this).serialize();
+        //用post方式提交
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.liulongbin.top:3007/api/login',
+            data: data,
+            success: function (res) {
+                //判断验证是否失败，如果失败停止执行下面的代码
+                if (res.status === 1) {
+                    //登录失败回复默认状态
+                    $('#register')[0].reset();
+                    //提示失败
+                    return layer.msg(res.message);
+                };
+                //提交到本地储存
+                localStorage.setItem('token', res.token);
+                //提示登录成功
+                layer.msg(res.message);
+            }
+        });
+
+    })
 });
