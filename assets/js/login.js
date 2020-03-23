@@ -80,6 +80,9 @@ $(function () {
                 localStorage.setItem('token', res.token);
                 //提示登录成功
                 layer.msg(res.message);
+                //跳转index页面
+               location.href = "/index.html";
+                 
             }
         });
 
