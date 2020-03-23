@@ -1,7 +1,7 @@
 // 入口函数
 $(function () {
     //注册退出的点击事件
-    $('.layui-nav-item a').on('click', function () {
+    $('.layui-nav-item #quit').on('click', function () {
 
 
         layer.confirm('确定要退出吗', {
@@ -13,21 +13,23 @@ $(function () {
         }, function () {
 
         });
-        getUaerinfo();
+       
     });
+    getUaerinfo();
+
+});
 // 定义一个函数
-    function getUaerinfo() {
-        //ajax获取
-        $.ajax({
-            type: 'GET',
-            url: '/my/userinfo',
-            success: function (res) {
-                console.log(res);
-            },
-            //配置请求头
-            headers: {
-                Authorization: localStorage.getItem('token')
-            }
-        });
-    }
-})
+function getUaerinfo() {
+    //ajax获取
+    $.ajax({
+        type: 'GET',
+        url: '/my/userinfo',
+        success: function (res) {
+            console.log(res);
+        },
+        //配置请求头
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    });
+}
