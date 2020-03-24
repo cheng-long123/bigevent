@@ -2,5 +2,8 @@
 $.ajaxPrefilter(function (option) {
     // console.log(option);
     //拼接地址 优化url
-    option.url = 'http://www.liulongbin.top:3007' + option.url
+    option.url = 'http://www.liulongbin.top:3007' + option.url;
+    option.headers = {
+        Authorization: localStorage.getItem('token')
+    }
 });

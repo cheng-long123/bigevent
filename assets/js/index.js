@@ -15,17 +15,17 @@ $(function () {
         });
 
     });
-    getUaerinfo();
+    getUserinfo();
 
 });
 // 定义一个函数
-function getUaerinfo() {
+function getUserinfo() {
     //ajax获取
     $.ajax({
         type: 'GET',
         url: '/my/userinfo',
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             //调用函数
             renderUser(res.data)
         },
