@@ -18,78 +18,99 @@
 
     <form class="layui-form" action="">
         <div class="layui-card">
-            <div class="layui-card-header">卡片面板</div>
+            <div class="layui-card-header">文章列表</div>
             <div class="layui-card-body">
                 <!-- 下拉框区域 -->
                 <div class="layui-form-item">
+
                     <div class="layui-inline">
-                        <!-- 第一个下拉框 -->
-                        <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">所有分类</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
-                            </select>
+
+                        <div class="layui-input-inline" style="width: 200px;" id="all-classify">
+
                         </div>
-                        <!-- 第二个下拉框 -->
-                        <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">所有状态</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
+
+                        <div class="layui-input-inline" style="width: 200px; " id="state">
+                            <select name="state" lay-verify="">
+                                <!-- <option value="">所有状态</option> -->
+                                <option value="已发布">已发布</option>
+                                <option value="草稿">草稿</option>
+
                             </select>
                         </div>
                     </div>
-                    <!-- 按钮区域 -->
+
                     <div class="layui-inline">
+                        <button type="submit" class="layui-btn">搜索</button>
                         <div class="layui-input-inline" style="width: 100px;">
-                            <button type="button" class="layui-btn">搜索</button>
+
                         </div>
                     </div>
-                    <!-- 表格区域数据 -->
-                    <table class="layui-table">
-                        <colgroup>
-                            <col width="400">
-                            <col width="170">
-                            <col width="170">
-                            <col width="170">
-                            <col>
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th>文章标题</th>
-                                <th>分类</th>
-                                <th>发表时间</th>
-                                <th>状态</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <td>贤心</td>
-                            <td>2016-11-29</td>
-                            <td>2016-11-29</td>
-                            <td>2016-11-29</td>
-                            <td>
-                                <button type="button" class="layui-btn   layui-btn-xs">编辑</button>
-                                <button type="button" class="layui-btn layui-btn-danger   layui-btn-xs">删除</button>
-                            </td>
-                        </tbody>
-                    </table>
-                    <div id="paging"></div>
+
                 </div>
+
+                <!-- 表格区域数据 -->
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="400">
+                        <col width="150">
+                        <col width="200">
+                        <col width="150">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>文章标题</th>
+                            <th>分类</th>
+                            <th>发表时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div id="paging"></div>
             </div>
+        </div>
         </div>
     </form>
     <!-- 引进jquery -->
     <script src="/assets/lib/jquery.js"></script>
     <!-- 引进layui -->
     <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 引入引擎模板 -->
+    <script src="/assets/lib/template-web.js"></script>
     <!-- 引进baseAPI -->
     <script src="/assets/js/baseAPI.js"></script>
     <!-- 引进list -->
     <script src="/assets/js/article/list.js"></script>
+    <!-- 表格数据 -->
+    <script type="text/html" id="tel-list">
+        {{each data val}}
+        <tr>
+            <td>{{val.title}}</td>
+            <td>{{val.cate_name}}</td>
+            <td>{{val.pub_date}}</td>
+            <td>{{val.state}}</td>
+            <td>
+                <button id="compile" data-id="{{val.Id}}" type="button" class="layui-btn   layui-btn-xs">编辑</button>
+                <button type="button" data-id="{{val.Id}}" class="layui-btn layui-btn-danger   layui-btn-xs"
+                    id="del-article">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <!-- 下拉列表 -->
+    <script type="text/html" id="tel-select">
+        <select name="city" lay-verify="">
+            <option value="">所有分类</option>
+            {{each data val}}
+            <option value="{{val.Id}}">{{val.name}}</option>
+            {{/each}}
+        </select>
+    </script>
+
 </body>
 
 </html>
