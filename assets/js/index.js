@@ -58,3 +58,13 @@ function renderUser(data) {
     $('.welcome').html('欢迎&nbsp;&nbsp;' + name);
 
 }
+//修改密码成功 商城token 跳转login
+function Alert() {
+
+    setTimeout(function () {
+        localStorage.removeItem('token');
+
+        location.href = '/login.html'
+    }, 1000)
+
+}
